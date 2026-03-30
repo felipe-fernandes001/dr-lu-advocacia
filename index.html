@@ -308,6 +308,124 @@
       gap: 10px;
       font-size: 0.88rem;
     }
+
+    /* Ajustes de Mobilidade (Celular) */
+@media (max-width: 768px) {
+  .hero .container {
+    display: flex;
+    flex-direction: column !important; /* Força empilhar */
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-photo-col {
+    order: -1; /* Foto em cima do texto */
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important; /* Diminui o texto para não vazar */
+  }
+
+  .hero-stats {
+    justify-content: center;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de números */
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr !important; /* Uma coluna só nas áreas */
+  }
+}
+
+/* Ajuste de Mobilidade Total */
+@media (max-width: 768px) {
+  /* Força o conteúdo a não vazar para os lados */
+  body, html {
+    overflow-x: hidden;
+  }
+
+  /* Ajusta o espaçamento geral */
+  .container {
+    width: 92% !important;
+    padding: 0 10px !important;
+  }
+
+  /* Organiza o topo (Hero) */
+  .hero {
+    padding: 3rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  /* Faz a FOTO aparecer e ficar centralizada */
+  .hero-photo-col {
+    order: -1 !important; /* Foto em cima do texto */
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto 2rem auto !important;
+    display: block !important;
+  }
+
+  .hero-photo-box {
+    height: 350px !important; /* Força uma altura para a foto aparecer */
+    background-position: center center !important;
+  }
+
+  /* Ajusta os textos para não ficarem gigantes */
+  .hero-title {
+    font-size: 1.8rem !important; /* Diminui o título */
+    line-height: 1.2 !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem !important;
+    padding: 0 10px !important;
+  }
+
+  /* Centraliza botões e estatísticas */
+  .hero-ctas, .hero-stats {
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Ajusta as áreas de atuação para uma coluna */
+  .areas-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Faz a FOTO aparecer inteira e alinhada pelo topo no celular */
+  .hero-photo-box {
+    height: 380px !important; /* Aumentei um pouco a altura para garantir */
+    background-image: url('dr_lu_perfil.jpg') !important;
+    background-size: cover !important;
+    background-position: center top !important; /* O SEGREDO ESTÁ AQUI: Alinha pelo topo */
+    border-radius: var(--radius-lg) !important;
+  }
+
+  /* Ajuste do Botão na Navbar para Celular */
+  .navbar .btn-primary {
+    padding: 0.6rem 1.2rem !important; /* Diminui o enchimento interno */
+    font-size: 0.85rem !important;    /* Texto um pouco menor para caber */
+    white-space: nowrap !important;   /* Impede que o texto quebre em duas linhas */
+    margin-left: 10px !important;     /* Dá um respiro do logo */
+  }
+
+  /* Ajuste da Navbar para não ficar apertada */
+  .navbar .container {
+    display: flex !important;
+    flex-direction: row !important;   /* Mantém logo e botão na mesma linha */
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.5rem 15px !important;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem !important;     /* Diminui um pouco o nome Dr. Lu */
+  }
   </style>
 </head>
 <body>
