@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Lu Qingnian | Advocacia em Família e Sucessões</title>
+  <meta name="description" content="Advocacia especializada em Família e Sucessões em São Raimundo das Mangabeiras. Atendimento personalizado. Consulta via WhatsApp." />
+
+  <!-- Fontes: Cormorant Garamond (display) + DM Sans (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       TOKENS E VARIÁVEIS
+    ============================================ */
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E2C97E;
+      --gold-dark:   #9A7A2E;
+      --black:       #0D0D0D;
+      --dark:        #181818;
+      --dark-2:      #242424;
+      --dark-3:      #2F2F2F;
+      --ivory:       #F5F0E8;
+      --ivory-2:     #EDE7D9;
+      --white:       #FFFFFF;
+      --muted:       #9A9182;
+
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body:    'DM Sans', system-ui, sans-serif;
+
+      --max-w: 1100px;
+      --radius: 4px;
+      --radius-lg: 10px;
+    }
+
+    /* ============================================
+       RESET E BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--black);
+      color: var(--ivory);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 90%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       UTILITÁRIOS
+    ============================================ */
+    .gold-text  { color: var(--gold); }
+    .muted-text { color: var(--muted); }
+    .section-tag {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* ============================================
+       BOTÕES
+    ============================================ */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--ff-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      padding: 0.95rem 2.2rem;
+      border-radius: var(--radius);
+      transition: background 0.25s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary:hover  { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      font-family: var(--ff-body);
+      font-weight: 400;
+      font-size: 0.9rem;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+      cursor: pointer;
+    }
+    .btn-outline:hover  { background: var(--gold); color: var(--black); transform: translateY(-2px); }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 1rem 0;
+      transition: background 0.3s;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--ivory); font-weight: 400; }
+
+    .nav-cta {
+      display: none; /* oculto no mobile, aparece no desktop */
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta { display: flex; }
+    }
+
+    /* ============================================
+       SEÇÃO HERO
+    ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 7rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    /* Textura decorativa — linhas diagonais sutis */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(201,168,76,0.03) 40px,
+        rgba(201,168,76,0.03) 41px
+      );
+      pointer-events: none;
+    }
+/* --- Estilo da Coluna de Texto --- */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* --- AJUSTE DE MOBILIDADE (Celular) --- */
+    @media (max-width: 899px) {
+      .hero .container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+      }
+      
+      .hero-photo-col {
+        order: -1; /* Foto aparece primeiro no celular */
+        max-width: 300px;
+        margin: 0 auto 2.5rem; /* Centraliza e adiciona respiro abaixo */
+      }
+
+      .hero-title {
+        font-size: 1.8rem; /* Ajuste para melhor leitura mobile */
+      }
+
+      .hero-subtitle {
+        line-height: 1.6; /* Ajuste de entrelinha para conforto visual */
+      }
+
+      .hero-photo-box {
+        background-position: center 10%; /* Ajusta enquadramento para mais respiro no topo */
+      }
+
+      /* Ajusta badges e molduras para não sobrepor o rosto */
+      .hero-floating-badge {
+        transform: scale(0.7); /* Reduz e reposiciona o selo para fora da foto */
+        transform-origin: top left; /* Garante que o scale não desloque o elemento */
+        left: -10px; /* Reposiciona para fora da moldura */
+        top: -10px;
+      }
+
+      .hero-photo-wrap::before,
+      .hero-photo-wrap::after {
+        transform: scale(0.85);
+      }
+      .hero-photo-wrap::before {
+        top: -12px;
+        left: -12px;
+      }
+      .hero-photo-wrap::after {
+        bottom: -12px;
+        right: -12px;
+      }
+
+      .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    /* --- AJUSTE DE DESKTOP (Layout em Colunas) --- */
+    @media (min-width: 900px) {
+      .hero .container {
+        display: grid;
+        grid-template-columns: 1fr 380px; /* Coluna de texto flexível, coluna da foto com largura fixa */
+        gap: 4rem; /* Espaçamento entre as colunas */
+        align-items: center; /* Alinhamento vertical centralizado */
+      }
+    }
+
+    .hero-eyebrow span {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--ivory);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Métricas de autoridade */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      list-style: none;
+    }
+    .stat-item strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* --- Coluna da foto / placeholder --- */
+    .hero-photo-col {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      order: -1; /* foto primeiro no mobile */
+    }
+    @media (min-width: 900px) {
+      .hero-photo-col { order: 0; }
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    /* Moldura dourada decorativa (canto sup. esq.) */
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: -16px;
+      width: 80px; height: 80px;
+      border-top: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+      border-radius: 2px 0 0 0;
+      z-index: 2;
+    }
+    /* Moldura dourada decorativa (canto inf. dir.) */
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 80px; height: 80px;
+      border-bottom: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+      border-radius: 0 0 2px 0;
+      z-index: 2;
+    }
+
+    /* Caixa da imagem de perfil */
+    .hero-photo-box {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background-color: var(--dark);
+      /* Caminho para a imagem de perfil local */
+      background-image: url('dr_lu_perfil.jpg');
+      background-size: cover;
+      background-position: center top;
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      /* Alinha o conteúdo (badge) na parte inferior */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* Fundo degradê dentro da foto */
+    .hero-photo-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%,
+        rgba(201,168,76,0.07) 0%,
+        transparent 70%
+      );
+    }
+
+    /* Overlay gradiente na base */
+    .hero-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(to top, var(--dark) 15%, transparent 100%); /* Gradiente mais forte para legibilidade */
+      z-index: 1;
+    }
+
+    /* Badge de nome sobre a foto */
+    .hero-photo-badge {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 1.4rem 1.5rem; /* Aumenta respiro interno do badge */
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hero-photo-badge strong {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ivory);
+      letter-spacing: 0.01em;
+    }
+    .hero-photo-badge span {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Faixa decorativa lateral — linha dourada vertical */
+    .hero-photo-line {
+      position: absolute;
+      top: 15%; right: -28px;
+      width: 1px;
+      height: 55%;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      display: none;
+    }
+    @media (min-width: 900px) { .hero-photo-line { display: block; } }
+
+    /* Badge de autoridade flutuante */
+    .hero-floating-badge {
+      position: absolute;
+      top: 1.5rem; left: -1.5rem;
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 3;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .hfb-icon {
+      width: 36px; height: 36px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hfb-text strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--ivory);
+      font-weight: 500;
+    }
+    .hfb-text span {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* ============================================
+       FAIXA DIVISÓRIA
+    ============================================ */
+    .divider-band {
+      background: var(--dark-2);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 1.6rem 0;
+      overflow: hidden;
+    }
+
+    .divider-band .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem 3rem;
+      text-align: center;
+    }
+
+    .band-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .band-item svg { flex-shrink: 0; }
+
+    /* ============================================
+       SEÇÃO: ÁREAS DE ATUAÇÃO
+    ============================================ */
+    .areas {
+      padding: 6rem 0;
+      background: var(--black);
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--ivory);
+      line-height: 1.15;
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    .section-desc {
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      margin-top: 0.75rem;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5px;
+      border: 1.5px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px)  { .areas-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px)  { .areas-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .area-card {
+      background: var(--dark);
+      padding: 2rem 1.8rem;
+      transition: background 0.3s;
+      position: relative;
+    }
+    .area-card:hover { background: var(--dark-2); }
+
+    .area-icon {
+      width: 44px; height: 44px;
+      background: rgba(201,168,76,0.1);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .area-icon svg { stroke: var(--gold); }
+
+    .area-card h3 {
+      font-family: var(--ff-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 0.5rem;
+    }
+
+    .area-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .area-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      transition: gap 0.2s;
+    }
+    .area-card:hover .area-link { gap: 10px; }
+
+    /* ============================================
+       SEÇÃO: POR QUE NOS ESCOLHER
+    ============================================ */
+    .why {
+      padding: 6rem 0;
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .why .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .why .container { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+
+    .why-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .why-bullet {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+
+    .why-item h4 {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 0.25rem;
+    }
+    .why-item p { font-size: 0.88rem; color: var(--muted); }
+
+    /* Card de destaque lateral */
+    .why-card {
+      background: var(--dark-2);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .why-card .big-number {
+      font-family: var(--ff-display);
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .why-card p { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+    .why-card .divider {
+      width: 40px; height: 1px;
+      background: var(--gold);
+      margin: 1.5rem auto;
+    }
+    .why-card blockquote {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       SEÇÃO: DEPOIMENTOS
+    ============================================ */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--black);
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 640px)  { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px)  { .testi-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .testi-card {
+      background: var(--dark);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.8rem;
+      position: relative;
+    }
+
+    .testi-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+    .testi-stars span { color: var(--gold); font-size: 0.9rem; }
+
+    .testi-card blockquote {
+      font-family: var(--ff-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ivory);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .testi-name strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--ivory);
+      font-weight: 500;
+    }
+    .testi-name span { font-size: 0.78rem; color: var(--muted); }
+
+    /* Aspas decorativas */
+    .testi-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-family: var(--ff-display);
+      font-size: 5rem;
+      color: rgba(201,168,76,0.08);
+      line-height: 1;
+    }
+
+    /* ============================================
+       SEÇÃO: CTA CENTRAL
+    ============================================ */
+    .cta-section {
+      padding: 6rem 0;
+      background: var(--dark-2);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      text-align: center;
+    }
+
+    .cta-section .section-title { max-width: 680px; margin: 0 auto 1rem; }
+    .cta-section .section-desc  { max-width: 500px; margin: 0 auto 2.5rem; }
+
+    .cta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .cta-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .cta-badge span { color: var(--gold); font-size: 1rem; }
+
+    /* ============================================
+       FORMULÁRIO DE CONTATO
+    ============================================ */
+    .contact {
+      padding: 6rem 0;
+      background: var(--black);
+    }
+
+    .contact .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .contact .container { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius);
+      color: var(--ivory);
+      font-family: var(--ff-body);
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 1.6rem;
+    }
+    .ci-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(201,168,76,0.1);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ci-icon svg { stroke: var(--gold); }
+    .contact-info-item h4 { font-size: 0.8rem; color: var(--muted); margin-bottom: 2px; }
+    .contact-info-item p  { font-size: 0.95rem; color: var(--ivory); }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--dark-3);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 640px)  { .footer-top { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px)  { .footer-top { grid-template-columns: 2fr 1fr 1fr; } }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      max-width: 320px;
+      line-height: 1.8;
+    }
+
+    .footer-col h5 {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a  { font-size: 0.88rem; color: var(--muted); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--ivory); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-legal { font-size: 0.78rem; color: var(--muted); line-height: 1.8; }
+
+    /* ============================================
+       BOTÃO FLUTUANTE WHATSAPP
+    ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      font-family: var(--ff-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 0.8rem 1.4rem 0.8rem 1rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+    }
+
+    /* Pulso verde animado */
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50px;
+      border: 2px solid rgba(37,211,102,0.5);
+      animation: pulse-ring 2s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%   { opacity: 0.8; transform: scale(1); }
+      100% { opacity: 0;   transform: scale(1.2); }
+    }
+
+    .wa-label { display: none; }
+    @media (min-width: 480px) { .wa-label { display: inline; } }
+
+    /* ============================================
+       ANIMAÇÃO DE ENTRADA (scroll reveal simples)
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+       NAVBAR
+  ================================================ -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        Dr. Lu<span> Qingnian</span>
+      </a>
+      <a href="https://wa.me/5599981927915?text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta."
+         class="btn-primary nav-cta" aria-label="Falar no WhatsApp">
+        <!-- Ícone WhatsApp inline -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Consulta Gratuita
+      </a>
+    </div>
+  </header>
+
+
+  <!-- ================================================
+       HERO
+  ================================================ -->
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+
+        <!-- COLUNA ESQUERDA: Texto -->
+        <div class="hero-content">
+
+          <div class="hero-eyebrow">
+            <hr aria-hidden="true" />
+            <span>Advocacia em Família &amp; Sucessões · São Raimundo das Mangabeiras</span>
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            Sua família merece<br />
+            <em>proteção jurídica</em><br />de verdade.
+          </h1>
+
+          <p class="hero-subtitle">
+            Divórcio, guarda, herança, inventário — cada caso é único e exige
+            uma estratégia sob medida. O Dr. Lu Qingnian une ética, excelência
+            e atendimento personalizado para defender o que mais importa para você.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="https://wa.me/5599981927915?text=Ol%C3%A1%2C+preciso+de+ajuda+jur%C3%ADdica."
+               class="btn-primary" aria-label="Falar no WhatsApp agora">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              Falar agora no WhatsApp
+            </a>
+            <a href="#contato" class="btn-outline">Ver formulário de contato</a>
+          </div>
+
+          <!-- Métricas de autoridade -->
+          <ul class="hero-stats" aria-label="Números do escritório">
+            <li class="stat-item">
+              <strong>10+</strong>
+              <p>Anos de experiência</p>
+            </li>
+            <li class="stat-item">
+              <strong>100%</strong>
+              <p>Dedicação ao seu caso</p>
+            </li>
+            <li class="stat-item">
+              <strong>Cível</strong>
+              <p>Família &amp; Sucessões</p>
+            </li>
+            <li class="stat-item">
+              <strong>24h</strong>
+              <p>Resposta garantida</p>
+            </li>
+          </ul>
+
+        </div><!-- /hero-content -->
+
+        <!-- COLUNA DIREITA: Foto / Placeholder elegante -->
+        <div class="hero-photo-col">
+          <div class="hero-photo-wrap">
+
+            <!-- Linha vertical decorativa -->
+            <div class="hero-photo-line" aria-hidden="true"></div>
+
+            <!-- Badge flutuante de autoridade -->
+            <div class="hero-floating-badge" aria-label="OAB inscrito">
+              <div class="hfb-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                     stroke="var(--gold)" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <div class="hfb-text">
+                <strong>OAB/MA 16.205</strong>
+                <span>Inscrito e regularizado</span>
+              </div>
+            </div>
+
+            <!-- Caixa da imagem -->
+            <div class="hero-photo-box" role="img" aria-label="Foto do Dr. Lu Qingnian">
+
+              <!-- A imagem de fundo é definida via CSS. -->
+              <!-- O conteúdo (overlay, badge) é posicionado sobre ela. -->
+
+              <!-- Overlay gradiente base -->
+              <div class="hero-photo-overlay" aria-hidden="true"></div>
+
+              <!-- Badge nome -->
+              <div class="hero-photo-badge">
+                <strong>Dr. Lu Qingnian</strong>
+                <span>OAB/MA 16.205 · Advogado</span>
+              </div>
+
+            </div><!-- /hero-photo-box -->
+          </div><!-- /hero-photo-wrap -->
+        </div><!-- /hero-photo-col -->
+
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         FAIXA DE CONFIANÇA / SELOS
+    ================================================ -->
+    <div class="divider-band" aria-label="Credenciais e selos">
+      <div class="container">
+
+        <div class="band-item">
+          <!-- Ícone escudo/OAB -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          OAB/MA 16.205
+        </div>
+
+        <div class="band-item">
+          <!-- Ícone certificado -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          Membro da ABO
+        </div>
+
+        <div class="band-item">
+          <!-- Ícone cadeado -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          Sigilo Total Garantido
+        </div>
+
+        <div class="band-item">
+          <!-- Ícone estrela -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77
+                             5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          4,9 ★ no Google
+        </div>
+
+        <div class="band-item">
+          <!-- Ícone calendário -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8"  y1="2" x2="8"  y2="6"/>
+            <line x1="3"  y1="10" x2="21" y2="10"/>
+          </svg>
+          1ª Consulta Gratuita
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ================================================
+         ÁREAS DE ATUAÇÃO
+    ================================================ -->
+    <section class="areas" id="areas" aria-labelledby="areas-title">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-tag">Especialidades</p>
+          <h2 class="section-title" id="areas-title">
+            Direito de Família<br />&amp; <em>Sucessões.</em>
+          </h2>
+          <p class="section-desc">
+            Cada família tem sua história. O Dr. Lu Qingnian atua nas questões
+            mais sensíveis da vida cível com estratégia personalizada e profundo
+            respeito por quem está do outro lado.
+          </p>
+        </div>
+
+        <div class="areas-grid reveal">
+
+          <!-- Divórcio -->
+          <article class="area-card">
+            <div class="area-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <line x1="18" y1="8" x2="23" y2="13"/>
+                <line x1="23" y1="8" x2="18" y2="13"/>
+              </svg>
+            </div>
+            <h3>Divórcio</h3>
+            <p>Consensual ou litigioso, com partilha de bens justa e proteção dos seus interesses em cada etapa do processo.</p>
+            <span class="area-link" aria-label="Saiba mais sobre Divórcio">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </article>
+
+          <!-- Guarda de Filhos -->
+          <article class="area-card">
+            <div class="area-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Guarda de Filhos</h3>
+            <p>Guarda compartilhada, unilateral e regulamentação de visitas. O bem-estar dos seus filhos é a prioridade.</p>
+            <span class="area-link" aria-label="Saiba mais sobre Guarda de Filhos">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </article>
+
+          <!-- Pensão Alimentícia -->
+          <article class="area-card">
+            <div class="area-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3>Pensão Alimentícia</h3>
+            <p>Fixação, revisão e execução de alimentos. Garanta que quem depende de você — ou de quem deve — receba o que é justo.</p>
+            <span class="area-link" aria-label="Saiba mais sobre Pensão Alimentícia">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </article>
+
+          <!-- Inventário -->
+          <article class="area-card">
+            <div class="area-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="9" y1="13" x2="15" y2="13"/>
+                <line x1="9" y1="17" x2="15" y2="17"/>
+              </svg>
+            </div>
+            <h3>Inventário e Herança</h3>
+            <p>Judicial ou extrajudicial, com ou sem testamento. Orientação completa para regularizar e partilhar o patrimônio familiar.</p>
+            <span class="area-link" aria-label="Saiba mais sobre Inventário">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </article>
+
+          <!-- União Estável -->
+          <article class="area-card">
+            <div class="area-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>União Estável</h3>
+            <p>Reconhecimento, dissolução e conversão em casamento. Proteja seus direitos como companheiro(a) perante a lei.</p>
+            <span class="area-link" aria-label="Saiba mais sobre União Estável">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </article>
+
+          <!-- Planejamento Sucessório -->
+          <article class="area-card">
+            <div class="area-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Planejamento Sucessório</h3>
+            <p>Testamento, doação em vida e holding familiar. Proteja seu patrimônio e evite conflitos futuros entre herdeiros.</p>
+            <span class="area-link" aria-label="Saiba mais sobre Planejamento Sucessório">
+              Saiba mais
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         POR QUE NOS ESCOLHER
+    ================================================ -->
+    <section class="why" id="sobre" aria-labelledby="why-title">
+      <div class="container">
+
+        <!-- Coluna de texto -->
+        <div>
+          <p class="section-tag">Por que me escolher</p>
+          <h2 class="section-title" id="why-title">
+            Um advogado que<br /><em>realmente ouve</em><br />você.
+          </h2>
+          <p class="section-desc" style="margin-bottom: 2.5rem;">
+            Com trajetória pautada na ética e na excelência, o Dr. Lu Qingnian
+            entende que por trás de cada processo existe uma família real, com
+            sentimentos reais — e merece uma estratégia única.
+          </p>
+
+          <ul class="why-list" role="list">
+            <li class="why-item reveal">
+              <div class="why-bullet" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                     stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Atendimento verdadeiramente personalizado</h4>
+                <p>Você fala diretamente com o Dr. Lu — sem intermediários. Cada caso recebe atenção individualizada e estratégia própria.</p>
+              </div>
+            </li>
+            <li class="why-item reveal">
+              <div class="why-bullet" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                     stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Especialização em Família e Sucessões</h4>
+                <p>Divórcio, guarda, alimentos, inventário e herança — foco total na área cível com profundo conhecimento das nuances que cada caso exige.</p>
+              </div>
+            </li>
+            <li class="why-item reveal">
+              <div class="why-bullet" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                     stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Ética e transparência em cada etapa</h4>
+                <p>Você saberá sempre o que está acontecendo com o seu processo. Comunicação clara, prazos respeitados e honorários transparentes.</p>
+              </div>
+            </li>
+            <li class="why-item reveal">
+              <div class="why-bullet" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)"
+                     stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Raízes em São Raimundo das Mangabeiras</h4>
+                <p>Atendimento local com conhecimento do contexto regional — e também disponível por videoconferência para toda a região.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card de destaque -->
+        <div class="why-card reveal">
+          <span class="big-number" aria-label="mais de 10 anos de experiência">10+</span>
+          <p>anos de atuação em Direito de Família e Sucessões</p>
+          <div class="divider" aria-hidden="true"></div>
+          <blockquote>
+            "Cada família tem sua história.
+            Meu papel é protegê-la com a
+            dedicação e a ética que ela merece."
+          </blockquote>
+          <p style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--gold);">
+            Dr. Lu Qingnian — OAB/MA 16.205
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         DEPOIMENTOS
+    ================================================ -->
+    <section class="testimonials" id="depoimentos" aria-labelledby="testi-title">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <p class="section-tag">Depoimentos</p>
+          <h2 class="section-title" id="testi-title">
+            O que nossos<br /><em>clientes dizem.</em>
+          </h2>
+        </div>
+
+        <div class="testi-grid">
+
+          <article class="testi-card reveal">
+            <div class="testi-stars" aria-label="5 de 5 estrelas">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote>
+              "Passei meses sem saber como resolver o inventário do meu pai.
+              O Dr. Lu explicou tudo com paciência, organizou cada documento
+              e resolveu em tempo recorde. Gratidão enorme."
+            </blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" aria-hidden="true">MC</div>
+              <div class="testi-name">
+                <strong>Maria C.</strong>
+                <span>São Raimundo das Mangabeiras, MA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card reveal">
+            <div class="testi-stars" aria-label="5 de 5 estrelas">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote>
+              "Estava desesperado com a situação da guarda dos meus filhos.
+              Ela me ouviu de verdade, montou uma estratégia sólida e
+              conseguimos um resultado que eu nem esperava. Profissional incrível."
+            </blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" aria-hidden="true">JS</div>
+              <div class="testi-name">
+                <strong>João S.</strong>
+                <span>Região de São Raimundo, MA</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testi-card reveal">
+            <div class="testi-stars" aria-label="5 de 5 estrelas">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <blockquote>
+              "O divórcio foi um momento difícil, mas ter o Dr. Lu ao meu lado
+              fez toda a diferença. Ele foi direto, humano e eficiente.
+              Recomendo de olhos fechados."
+            </blockquote>
+            <div class="testi-author">
+              <div class="testi-avatar" aria-hidden="true">RL</div>
+              <div class="testi-name">
+                <strong>Renata L.</strong>
+                <span>São Raimundo das Mangabeiras, MA</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         CTA CENTRAL
+    ================================================ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <p class="section-tag">Dê o primeiro passo</p>
+        <h2 class="section-title reveal" id="cta-title">
+          Não deixe sua família<br /><em>sem a proteção</em> que merece.
+        </h2>
+        <p class="section-desc muted-text reveal">
+          Uma conversa de 15 minutos com o Dr. Lu Qingnian pode mudar o rumo
+          da sua situação. Atendimento em São Raimundo das Mangabeiras e online.
+        </p>
+
+        <a href="https://wa.me/5599981927915?text=Ol%C3%A1%2C+quero+minha+consulta+gratuita."
+           class="btn-primary reveal" aria-label="Iniciar consulta gratuita via WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Quero minha consulta gratuita
+        </a>
+
+        <div class="cta-badges reveal" role="list">
+          <div class="cta-badge" role="listitem">
+            <span aria-hidden="true">✓</span> Sem custo inicial
+          </div>
+          <div class="cta-badge" role="listitem">
+            <span aria-hidden="true">✓</span> Resposta em até 24h
+          </div>
+          <div class="cta-badge" role="listitem">
+            <span aria-hidden="true">✓</span> 100% sigiloso
+          </div>
+          <div class="cta-badge" role="listitem">
+            <span aria-hidden="true">✓</span> Atendimento online
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         FORMULÁRIO DE CONTATO
+    ================================================ -->
+    <section class="contact" id="contato" aria-labelledby="contact-title">
+      <div class="container">
+
+        <!-- Info de contato -->
+        <div>
+          <p class="section-tag">Contato</p>
+          <h2 class="section-title reveal" id="contact-title">
+            Fale com<br /><em>o Dr. Lu.</em>
+          </h2>
+          <p class="section-desc reveal" style="margin-bottom: 2.5rem;">
+            Prefere formulário? Preencha ao lado e retorno em até 24 horas.
+          </p>
+
+          <div class="contact-info-item reveal">
+            <div class="ci-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1
+                         4.11 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 1.22l3-.01a2 2 0 0 1 2
+                         1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0
+                         6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21
+                         16l.92.92z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>WhatsApp / Telefone</h4>
+              <p>(99) 98192-7915</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item reveal">
+            <div class="ci-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <h4>E-mail</h4>
+              <p>contato@luqingnian.adv.br</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item reveal">
+            <div class="ci-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Localização</h4>
+              <p>São Raimundo das Mangabeiras, MA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário -->
+        <form
+          onsubmit="handleFormSubmit(event)"
+          aria-label="Formulário de contato"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="name">Nome completo</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Seu nome completo" required
+                   autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">WhatsApp / Telefone</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="(00) 00000-0000" required
+                   autocomplete="tel" />
+          </div>
+
+          <div class="form-group">
+            <label for="area">Área de interesse</label>
+            <select id="area" name="area" required>
+              <option value="" disabled selected>Selecione uma área</option>
+              <option value="divorcio">Divórcio</option>
+              <option value="guarda">Guarda de Filhos</option>
+              <option value="pensao">Pensão Alimentícia</option>
+              <option value="inventario">Inventário e Herança</option>
+              <option value="uniao">União Estável</option>
+              <option value="sucessorio">Planejamento Sucessório</option>
+              <option value="outro">Outro / Não sei</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Descreva brevemente sua situação</label>
+            <textarea id="message" name="message"
+                      placeholder="Conte o que está acontecendo com suas próprias palavras. Todas as informações são sigilosas."
+                      required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+            Enviar mensagem
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+
+          <p style="font-size:0.76rem; color:var(--muted); margin-top:1rem; text-align:center;">
+            Ao enviar, você concorda com nossa
+            <a href="#" style="color:var(--gold);">Política de Privacidade</a>.
+            Seus dados jamais serão compartilhados.
+          </p>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <!-- Marca -->
+        <div class="footer-brand">
+          <p class="nav-logo" style="font-size:1.5rem;">Dr. Lu<span> Qingnian</span></p>
+          <p>
+            Advocacia especializada em Direito de Família e Sucessões em
+            São Raimundo das Mangabeiras — com ética, excelência e atendimento personalizado.
+          </p>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="footer-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#areas">Áreas de Atuação</a></li>
+            <li><a href="#sobre">Sobre o Escritório</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes e contato -->
+        <div class="footer-col">
+          <h5>Contato</h5>
+          <ul>
+            <li><a href="https://wa.me/5599981927915">(99) 98192-7915</a></li>
+            <li><a href="mailto:contato@luqingnian.adv.br">contato@luqingnian.adv.br</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Rodapé legal -->
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          © 2025 Dr. Lu Qingnian — Advocacia. Todos os direitos reservados.<br />
+          OAB/MA 16.205 — Inscrição Seccional: Maranhão<br />
+          As informações neste site têm caráter informativo e não constituem consultoria jurídica.
+        </p>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#" style="font-size:0.78rem; color:var(--muted);">Privacidade</a>
+          <a href="#" style="font-size:0.78rem; color:var(--muted);">Termos de Uso</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ================================================
+       BOTÃO FLUTUANTE WHATSAPP
+  ================================================ -->
+  <a href="https://wa.me/5599981927915?text=Ol%C3%A1%2C+vim+pelo+site+e+quero+uma+consulta+gratuita."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Falar no WhatsApp agora">
+
+    <!-- Ícone WhatsApp SVG -->
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="white" aria-hidden="true">
+      <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.36.63 4.573 1.73 6.487L2.667
+               29.333l7.053-1.693A13.245 13.245 0 0 0 16.003 29.333C23.37 29.333 29.333 23.363
+               29.333 16S23.37 2.667 16.003 2.667zm0 24c-2.1 0-4.063-.58-5.743-1.587l-.413-.243
+               -4.183 1.003 1.047-4.06-.27-.42A10.653 10.653 0 0 1 5.333 16c0-5.887 4.787-10.667
+               10.67-10.667C21.887 5.333 26.667 10.113 26.667 16S21.887 26.667 16.003
+               26.667zm5.847-7.977c-.32-.16-1.893-.937-2.187-1.043-.293-.107-.507-.16-.72.16
+               -.213.32-.827 1.043-1.013 1.257-.187.213-.373.24-.693.08-.32-.16-1.35-.497
+               -2.573-1.587-.95-.847-1.593-1.893-1.78-2.213-.187-.32-.02-.493.14-.653.143
+               -.143.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08
+               -.16-.72-1.733-.987-2.373-.26-.623-.52-.537-.72-.547-.187-.007-.4-.01-.613
+               -.01-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667 0 1.573 1.147 3.093
+               1.307 3.307.16.213 2.257 3.44 5.467 4.827.763.33 1.36.527 1.823.673.767.243
+               1.467.21 2.02.127.617-.093 1.893-.773 2.16-1.52.267-.747.267-1.387.187-1.52
+               -.08-.133-.293-.213-.613-.373z"/>
+    </svg>
+    <span class="wa-label">Falar no WhatsApp</span>
+  </a>
+
+
+  <!-- ================================================
+       SCRIPTS
+  ================================================ -->
+  <script>
+    /* === Scroll Reveal === */
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      els.forEach((el) => observer.observe(el));
+    })();
+
+    /* === Formulário: redireciona para WhatsApp === */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name    = document.getElementById('name').value.trim();
+      const phone   = document.getElementById('phone').value.trim();
+      const area    = document.getElementById('area').value;
+      const message = document.getElementById('message').value.trim();
+
+      const text = encodeURIComponent(
+        `Olá! Meu nome é ${name}.\n` +
+        `Telefone: ${phone}\n` +
+        `Área: ${area}\n\n` +
+        `Situação: ${message}`
+      );
+
+      window.open(`https://wa.me/5599981927915?text=${text}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
